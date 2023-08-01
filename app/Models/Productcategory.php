@@ -51,4 +51,3 @@ class Productcategory extends Model
         return $imageThumbUrl;
     }
 }
-}
