@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('roles')->after('email')->default('USER');
             $table->string('phone')->after('roles')->nullable();
             $table->string('username')->after('name')->nullable();
+            $table->char('masteruser', 1)->after('username')->nullable();
         });
     }
 
@@ -27,6 +28,7 @@ return new class extends Migration
             $table->dropColumn('roles');
             $table->dropColumn('phone');
             $table->dropColumn('username');
+            $table->dropColumn('masteruser');
         });
     }
 };
