@@ -2,17 +2,17 @@
 return [
     'image' => [
         'directoryProductcategory' => 'uploads/images/productcategory/',
-        'thumbnailpost' => [
+        'thumbnailproductcategory' => [
             'width' => 300,
             'height' => 200
         ],
         'directoryProduct' => 'uploads/images/product/',
-        'thumbnailpost' => [
+        'thumbnailproduct' => [
             'width' => 300,
             'height' => 200
         ],
         'directoryUser' => 'uploads/images/users/',
-        'thumbnailpost' => [
+        'thumbnailuser' => [
             'width' => 300,
             'height' => 200
         ],
