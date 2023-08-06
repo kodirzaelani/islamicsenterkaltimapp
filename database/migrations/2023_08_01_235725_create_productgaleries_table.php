@@ -14,15 +14,12 @@ return new class extends Migration
         Schema::create('productgaleries', function (Blueprint $table) {
             $table->uuid('id');
             $table->uuid('product_id');
-            $table->string('title');
-            $table->string('slug')->unique();
-            $table->string('tags')->nullable();
-            $table->float('price');
+            $table->string('url_image');
             $table->timestamps();
             $table->softDeletes();
             $table->primary('id');
 
-            $table->foreign('productcategory_id')->references('id')->on('productcategories')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('product_id')->references('id')->on('products')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
