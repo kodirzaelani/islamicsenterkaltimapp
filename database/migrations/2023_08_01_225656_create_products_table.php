@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('tags')->nullable();
+            $table->text('description')->nullable();
             $table->float('price');
             $table->timestamps();
             $table->softDeletes();
