@@ -22,4 +22,35 @@ class Productcategory extends Model
             $query->where('title', 'like', $term);
         });
     }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'productcategory_id');
+    }
+
+    public function getImageUrlAttribute($value)
+    {
+        $imageUrl = "";
+
+        if (!is_null($this->image)) {
+            $directory = config('cms.image.directoryProductcategory');
+            $imagePath = public_path() . "/{$directory}" . $this->image;
+            if (file_exists($imagePath)) $imageUrl = asset("/{$directory}" . $this->image);
+        }
+
+        return $imageUrl;
+    }
+
+    public function getImageThumbUrlAttribute($value)
+    {
+        $imageThumbUrl = "";
+
+        if (!is_null($this->image)) {
+            $directory = config('cms.image.directoryProductcategory');
+            $imagePath = public_path() . "/{$directory}/images_thumb/" . $this->image;
+            if (file_exists($imagePath)) $imageThumbUrl = asset("/$directory" . $this->image);
+        }
+
+        return $imageThumbUrl;
+    }
 }
