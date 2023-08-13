@@ -13,7 +13,7 @@ class ProductController extends Controller
     {
         $id = $request->input('id');
         $limit = $request->input('limit', 6);
-        $name = $request->input('name');
+        $title = $request->input('title');
         $description = $request->input('description');
         $tags = $request->input('tags');
         $categories = $request->input('categories');
@@ -39,8 +39,8 @@ class ProductController extends Controller
 
         $product = Product::with(['category', 'galleries']);
 
-        if ($name)
-            $product->where('name', 'like', '%' . $name . '%');
+        if ($title)
+            $product->where('title', 'like', '%' . $title . '%');
 
         if ($description)
             $product->where('description', 'like', '%' . $description . '%');
