@@ -50,13 +50,13 @@ class UserController extends Controller
             $tokenResult = $user->createToken('authToken')->plainTextToken;
             return ResponseFormatter::success([
                 'access_token' => $tokenResult,
-                'token_type' => 'Bearer',
-                'user' => $user
+                'token_type'   => 'Bearer',
+                'user'         => $user
             ], 'Authenticated');
         } catch (Exception $error) {
             return ResponseFormatter::error([
                 'message' => 'Something went wrong',
-                'error' => $error,
+                'error'   => $error,
             ], 'Authentication Failed', 500);
         }
     }

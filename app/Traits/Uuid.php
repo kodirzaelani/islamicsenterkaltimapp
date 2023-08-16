@@ -6,17 +6,19 @@ use Illuminate\Support\Str;
 
 trait Uuid
 {
-    protected static function boot() {
+    protected static function boot()
+    {
         parent::boot();
         static::creating(function ($model) {
-            if ( ! $model->getKey()) {
+            if (!$model->getKey()) {
                 $model->{$model->getKeyName()} = (string) Str::uuid();
             }
         });
     }
 
+
     /**
-     * getIncrementing 
+     * getIncrementing
      * dinonaktifkan karena menggunakan uuid
      * @return void
      */
@@ -24,7 +26,7 @@ trait Uuid
     {
         return false;
     }
-    
+
     /**
      * getKeyType
      * Get the auto-increment key type
