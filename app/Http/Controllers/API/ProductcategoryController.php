@@ -11,9 +11,9 @@ class ProductcategoryController extends Controller
 {
     public function all(Request $request)
     {
-        $id = $request->input('id');
-        $limit = $request->input('limit', 6);
-        $title = $request->input('title');
+        $id           = $request->input('id');
+        $limit        = $request->input('limit', 6);
+        $title        = $request->input('title');
         $show_product = $request->input('show_product');
 
         if ($id) {

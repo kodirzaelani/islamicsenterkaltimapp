@@ -11,15 +11,15 @@ class ProductController extends Controller
 {
     public function all(Request $request)
     {
-        $id = $request->input('id');
-        $limit = $request->input('limit', 6);
-        $title = $request->input('title');
+        $id          = $request->input('id');
+        $limit       = $request->input('limit', 6);
+        $title       = $request->input('title');
         $description = $request->input('description');
-        $tags = $request->input('tags');
-        $categories = $request->input('categories');
+        $tags        = $request->input('tags');
+        $categories  = $request->input('categories');
 
         $price_from = $request->input('price_from');
-        $price_to = $request->input('price_to');
+        $price_to   = $request->input('price_to');
 
         if ($id) {
             $product = Product::with(['category', 'galleries'])->find($id);
